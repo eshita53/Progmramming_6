@@ -48,7 +48,7 @@ reproducible and scalable data analysis [1]. This project refactors a machine le
    - Edit the **`config.yaml`** file to specify the dataset path and other parameters.
 # Workflow DAG:
 The Directed Acyclic Graph (DAG) provides a clear representation of the project's workflow, showing how different steps depend on each other. 
-![image](https://github.com/eshita53/Discovering-natural-compounds-for-paint-preservation-through-pubMed-mining/blob/931d56ad2834b76ef7f0928f3e952c992855c6d0/src/clustering_program/rule_graph-1.png)
+![image](https://github.com/eshita53/Progmramming_6/blob/10d4581eb9f77106c1c95a1d51cca5b69634b4c7/Snakemake/images/dag.png)
 
 
 
