@@ -1,0 +1,32 @@
+name: programming_6
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - snakemake-minimal >=8.4.4
+  - jinja2
+  - matplotlib
+  - graphviz
+  - bcftools =1.19
+  - samtools =1.19.2
+  - bwa =0.7.17
+  - ipykernel
+  - notebook
+  - scikit-learn
+  - pygments
+  - pandas
+  - matplotlib
+  - scapy
+  - seaborn
+  - conda-forge::umap-learn
+  - conda-forge::hdbscan
+  - conda-forge::imbalanced-learn
+  - python-calamine
+  - tensorflow
+  - xgboost
+  - polars
+  - codecarbon
+  - pip:
+    - pysam ==0.22
+    - scikit-learn
+

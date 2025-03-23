@@ -1,0 +1,165 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 32
+Rules claiming more threads will be scaled down.
+Job stats:
+job                      count    min threads    max threads
+---------------------  -------  -------------  -------------
+all                          1              1              1
+analyzing_benchmarks         1              1              1
+combine_results              1              1              1
+data_preprocessing           1              1              1
+data_retrieval               1              1              1
+generate_report              1              1              1
+model_evaluation             2              1              1
+model_training               2              1              1
+visualize_performance        1              1              1
+total                       11              1              1
+
+Select jobs to execute...
+
+[Sun Mar 23 01:50:06 2025]
+rule data_retrieval:
+    input: data/Lung3.metadata.csv, data/GSE58661_series_matrix.txt.gz
+    output: data/raw/train_X.csv, data/raw/test_X.csv, data/raw/train_y.csv, data/raw/test_y.csv
+    jobid: 4
+    reason: Missing output files: data/raw/test_X.csv, data/raw/test_y.csv, data/raw/train_X.csv, data/raw/train_y.csv
+    resources: tmpdir=/tmp
+
+[Sun Mar 23 01:50:21 2025]
+Finished job 4.
+1 of 11 steps (9%) done
+Select jobs to execute...
+
+[Sun Mar 23 01:50:21 2025]
+rule data_preprocessing:
+    input: data/raw/train_X.csv, data/raw/train_y.csv, data/raw/test_X.csv, data/raw/test_y.csv
+    output: models/feature_processor.pkl, models/fitted_label_encoded_train_y.pkl, data/transformed_data/transformed_train_X.csv, data/transformed_data/transformed_test_X.csv, data/transformed_data/label_encoded_train_y.csv, data/transformed_data/label_encoded_test_y.csv
+    jobid: 3
+    reason: Missing output files: data/transformed_data/label_encoded_test_y.csv, data/transformed_data/transformed_train_X.csv, data/transformed_data/label_encoded_train_y.csv, data/transformed_data/transformed_test_X.csv; Input files updated by another job: data/raw/test_X.csv, data/raw/test_y.csv, data/raw/train_X.csv, data/raw/train_y.csv; Code has changed since last execution
+    resources: tmpdir=/tmp
+
+[Sun Mar 23 01:50:42 2025]
+Finished job 3.
+2 of 11 steps (18%) done
+Select jobs to execute...
+
+[Sun Mar 23 01:50:42 2025]
+rule model_training:
+    input: data/transformed_data/transformed_train_X.csv, data/transformed_data/label_encoded_train_y.csv
+    output: models/MulticlassLogisticsRegression.pkl
+    jobid: 6
+    benchmark: benchmarks/model_training_MulticlassLogisticsRegression.txt
+    reason: Input files updated by another job: data/transformed_data/transformed_train_X.csv, data/transformed_data/label_encoded_train_y.csv
+    wildcards: model=MulticlassLogisticsRegression
+    resources: tmpdir=/tmp
+
+[Sun Mar 23 01:50:42 2025]
+rule model_training:
+    input: data/transformed_data/transformed_train_X.csv, data/transformed_data/label_encoded_train_y.csv
+    output: models/RandomForest.pkl
+    jobid: 2
+    benchmark: benchmarks/model_training_RandomForest.txt
+    reason: Input files updated by another job: data/transformed_data/transformed_train_X.csv, data/transformed_data/label_encoded_train_y.csv
+    wildcards: model=RandomForest
+    resources: tmpdir=/tmp
+
+[Sun Mar 23 01:50:43 2025]
+Finished job 2.
+3 of 11 steps (27%) done
+Select jobs to execute...
+
+[Sun Mar 23 01:50:43 2025]
+rule model_evaluation:
+    input: models/RandomForest.pkl, data/transformed_data/transformed_test_X.csv, data/transformed_data/label_encoded_test_y.csv
+    output: results/RandomForest_evaluation_metrics.csv
+    jobid: 1
+    benchmark: benchmarks/model_evaluation_RandomForest.txt
+    reason: Missing output files: results/RandomForest_evaluation_metrics.csv; Input files updated by another job: data/transformed_data/label_encoded_test_y.csv, models/RandomForest.pkl, data/transformed_data/transformed_test_X.csv
+    wildcards: model=RandomForest
+    resources: tmpdir=/tmp
+
+[Sun Mar 23 01:50:45 2025]
+Finished job 1.
+4 of 11 steps (36%) done
+[Sun Mar 23 01:50:48 2025]
+Finished job 6.
+5 of 11 steps (45%) done
+Select jobs to execute...
+
+[Sun Mar 23 01:50:48 2025]
+rule model_evaluation:
+    input: models/MulticlassLogisticsRegression.pkl, data/transformed_data/transformed_test_X.csv, data/transformed_data/label_encoded_test_y.csv
+    output: results/MulticlassLogisticsRegression_evaluation_metrics.csv
+    jobid: 5
+    benchmark: benchmarks/model_evaluation_MulticlassLogisticsRegression.txt
+    reason: Missing output files: results/MulticlassLogisticsRegression_evaluation_metrics.csv; Input files updated by another job: data/transformed_data/label_encoded_test_y.csv, models/MulticlassLogisticsRegression.pkl, data/transformed_data/transformed_test_X.csv
+    wildcards: model=MulticlassLogisticsRegression
+    resources: tmpdir=/tmp
+
+[Sun Mar 23 01:50:49 2025]
+Finished job 5.
+6 of 11 steps (55%) done
+Select jobs to execute...
+
+[Sun Mar 23 01:50:49 2025]
+rule combine_results:
+    input: results/RandomForest_evaluation_metrics.csv, results/MulticlassLogisticsRegression_evaluation_metrics.csv
+    output: results/combine_results.csv
+    jobid: 8
+    reason: Missing output files: results/combine_results.csv; Input files updated by another job: results/MulticlassLogisticsRegression_evaluation_metrics.csv, results/RandomForest_evaluation_metrics.csv
+    resources: tmpdir=/tmp
+
+[Sun Mar 23 01:50:49 2025]
+rule analyzing_benchmarks:
+    input: benchmarks/model_training_RandomForest.txt, benchmarks/model_training_MulticlassLogisticsRegression.txt, benchmarks/model_evaluation_RandomForest.txt, benchmarks/model_evaluation_MulticlassLogisticsRegression.txt
+    output: results/benchmark_summary.csv
+    jobid: 7
+    reason: Missing output files: results/benchmark_summary.csv; Input files updated by another job: benchmarks/model_training_MulticlassLogisticsRegression.txt, benchmarks/model_evaluation_RandomForest.txt, benchmarks/model_training_RandomForest.txt, benchmarks/model_evaluation_MulticlassLogisticsRegression.txt
+    resources: tmpdir=/tmp
+
+[Sun Mar 23 01:50:50 2025]
+Finished job 8.
+7 of 11 steps (64%) done
+[Sun Mar 23 01:50:50 2025]
+Finished job 7.
+8 of 11 steps (73%) done
+Select jobs to execute...
+
+[Sun Mar 23 01:50:50 2025]
+rule visualize_performance:
+    input: results/combine_results.csv, results/benchmark_summary.csv
+    output: results/plots/roc_curve.png, results/plots/accuracy.png, results/plots/f1_score.png, results/plots/run_time.png
+    jobid: 9
+    reason: Missing output files: results/plots/accuracy.png, results/plots/run_time.png, results/plots/f1_score.png, results/plots/roc_curve.png; Input files updated by another job: results/benchmark_summary.csv, results/combine_results.csv
+    resources: tmpdir=/tmp
+
+[Sun Mar 23 01:50:51 2025]
+Finished job 9.
+9 of 11 steps (82%) done
+Select jobs to execute...
+
+[Sun Mar 23 01:50:51 2025]
+rule generate_report:
+    input: results/combine_results.csv, results/benchmark_summary.csv, results/plots/roc_curve.png, results/plots/accuracy.png, results/plots/f1_score.png, results/plots/run_time.png
+    output: reports/reports.html
+    jobid: 10
+    reason: Missing output files: reports/reports.html; Input files updated by another job: results/plots/accuracy.png, results/benchmark_summary.csv, results/combine_results.csv, results/plots/run_time.png, results/plots/roc_curve.png, results/plots/f1_score.png
+    resources: tmpdir=/tmp
+
+[Sun Mar 23 01:50:52 2025]
+Finished job 10.
+10 of 11 steps (91%) done
+Select jobs to execute...
+
+[Sun Mar 23 01:50:52 2025]
+localrule all:
+    input: results/RandomForest_evaluation_metrics.csv, results/MulticlassLogisticsRegression_evaluation_metrics.csv, results/benchmark_summary.csv, results/combine_results.csv, results/plots/roc_curve.png, results/plots/accuracy.png, results/plots/f1_score.png, reports/reports.html
+    jobid: 0
+    reason: Input files updated by another job: results/plots/accuracy.png, results/benchmark_summary.csv, results/MulticlassLogisticsRegression_evaluation_metrics.csv, results/combine_results.csv, results/RandomForest_evaluation_metrics.csv, results/plots/roc_curve.png, reports/reports.html, results/plots/f1_score.png
+    resources: tmpdir=/tmp
+
+[Sun Mar 23 01:50:52 2025]
+Finished job 0.
+11 of 11 steps (100%) done
+Complete log: .snakemake/log/2025-03-23T015005.775050.snakemake.log

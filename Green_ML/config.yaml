@@ -1,0 +1,3 @@
+lung3 : 'data/Lung3.metadata.xls'
+lung3_csv : 'data/Lung3.metadata.csv'
+gene : 'data/GSE58661_series_matrix.txt.gz'

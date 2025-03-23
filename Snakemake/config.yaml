@@ -1,0 +1,13 @@
+directories:
+  raw_data: "data/raw"
+  transformed_data: "data/transformed_data"
+  models: "models"
+  results: "results"
+  plots: "results/plots"
+  logs: "logs"
+  benchmarks: "benchmarks"
+  reports: "reports"
+  scripts: "scripts"
+lung3 : 'data/Lung3.metadata.csv'
+gene : 'data/GSE58661_series_matrix.txt.gz'
+model_name: ['RandomForest', 'MulticlassLogisticsRegression']

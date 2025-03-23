@@ -1,0 +1,36 @@
+host: Mds-Laptop.local
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job                   count
+------------------  -------
+data_preprocessing        1
+total                     1
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Mar 20 14:41:45 2025]
+localrule data_preprocessing:
+    input: data/raw/train_X.csv, data/raw/train_y.csv, data/raw/test_X.csv, data/raw/test_y.csv
+    output: model/feature_processor.joblib, model/fitted_label_encoded_train_y.joblib, data/transformed_data/transformed_train_X.csv, data/transformed_data/transformed_test_X.csv, data/transformed_data/label_encoded_train_y.csv, data/transformed_data/label_encoded_test_y.csv
+    jobid: 0
+    reason: Missing output files: model/feature_processor.joblib, data/transformed_data/label_encoded_test_y.csv, model/fitted_label_encoded_train_y.joblib, data/transformed_data/transformed_train_X.csv, data/transformed_data/transformed_test_X.csv, data/transformed_data/label_encoded_train_y.csv
+    resources: tmpdir=/var/folders/vw/j0gj7skx0qdbp446rdwrjyz80000gn/T
+
+RuleException:
+CalledProcessError in file /Users/eshita-pc/Documents/Second_year/programming 6/Snakemake/main.smk, line 29:
+Command 'set -euo pipefail;  /Users/eshita-pc/miniconda3/envs/paint/bin/python3.12 '/Users/eshita-pc/Documents/Second_year/programming 6/Snakemake/.snakemake/scripts/tmp0tcbdjvl.data_pre_processing.py'' returned non-zero exit status 1.
+[Thu Mar 20 14:41:51 2025]
+Error in rule data_preprocessing:
+    jobid: 0
+    input: data/raw/train_X.csv, data/raw/train_y.csv, data/raw/test_X.csv, data/raw/test_y.csv
+    output: model/feature_processor.joblib, model/fitted_label_encoded_train_y.joblib, data/transformed_data/transformed_train_X.csv, data/transformed_data/transformed_test_X.csv, data/transformed_data/label_encoded_train_y.csv, data/transformed_data/label_encoded_test_y.csv
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-03-20T144145.021886.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

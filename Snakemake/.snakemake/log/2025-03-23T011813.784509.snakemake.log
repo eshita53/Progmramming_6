@@ -1,0 +1,106 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 32
+Rules claiming more threads will be scaled down.
+Job stats:
+job                                                  count    min threads    max threads
+-------------------------------------------------  -------  -------------  -------------
+all                                                      1              1              1
+analyzing_benchmarks                                     1              1              1
+combine_results                                          1              1              1
+compare_models_performance_through_visualizations        1              1              1
+generate_report                                          1              1              1
+model_evaluation                                         2              1              1
+total                                                    7              1              1
+
+Select jobs to execute...
+
+[Sun Mar 23 01:18:14 2025]
+rule model_evaluation:
+    input: models/RandomForest.pkl, data/transformed_data/transformed_test_X.csv, data/transformed_data/label_encoded_test_y.csv
+    output: results/RandomForest_evalution_metics.csv
+    jobid: 1
+    benchmark: benchmarks/model_evaluation_RandomForest.txt
+    reason: Code has changed since last execution
+    wildcards: model=RandomForest
+    resources: tmpdir=/tmp
+
+[Sun Mar 23 01:18:14 2025]
+rule model_evaluation:
+    input: models/MulticlassLogisticsRegression.pkl, data/transformed_data/transformed_test_X.csv, data/transformed_data/label_encoded_test_y.csv
+    output: results/MulticlassLogisticsRegression_evalution_metics.csv
+    jobid: 5
+    benchmark: benchmarks/model_evaluation_MulticlassLogisticsRegression.txt
+    reason: Code has changed since last execution
+    wildcards: model=MulticlassLogisticsRegression
+    resources: tmpdir=/tmp
+
+[Sun Mar 23 01:18:16 2025]
+Finished job 5.
+1 of 7 steps (14%) done
+[Sun Mar 23 01:18:16 2025]
+Finished job 1.
+2 of 7 steps (29%) done
+Select jobs to execute...
+
+[Sun Mar 23 01:18:16 2025]
+rule combine_results:
+    input: results/RandomForest_evalution_metics.csv, results/MulticlassLogisticsRegression_evalution_metics.csv
+    output: results/combine_results.csv
+    jobid: 8
+    reason: Input files updated by another job: results/RandomForest_evalution_metics.csv, results/MulticlassLogisticsRegression_evalution_metics.csv
+    resources: tmpdir=/tmp
+
+[Sun Mar 23 01:18:16 2025]
+rule analyzing_benchmarks:
+    input: benchmarks/model_training_RandomForest.txt, benchmarks/model_training_MulticlassLogisticsRegression.txt, benchmarks/model_evaluation_RandomForest.txt, benchmarks/model_evaluation_MulticlassLogisticsRegression.txt
+    output: results/benchmark_summary.csv
+    jobid: 7
+    reason: Input files updated by another job: benchmarks/model_evaluation_MulticlassLogisticsRegression.txt, benchmarks/model_evaluation_RandomForest.txt
+    resources: tmpdir=/tmp
+
+[Sun Mar 23 01:18:17 2025]
+Finished job 8.
+3 of 7 steps (43%) done
+[Sun Mar 23 01:18:17 2025]
+Finished job 7.
+4 of 7 steps (57%) done
+Select jobs to execute...
+
+[Sun Mar 23 01:18:17 2025]
+rule compare_models_performance_through_visualizations:
+    input: results/combine_results.csv, results/benchmark_summary.csv
+    output: results/plot/roc_curve.png, results/plot/accuracy.png, results/plot/f1_score.png, results/plot/run_time.png
+    jobid: 9
+    reason: Input files updated by another job: results/benchmark_summary.csv, results/combine_results.csv
+    resources: tmpdir=/tmp
+
+[Sun Mar 23 01:18:18 2025]
+Finished job 9.
+5 of 7 steps (71%) done
+Select jobs to execute...
+
+[Sun Mar 23 01:18:18 2025]
+rule generate_report:
+    input: results/combine_results.csv, results/benchmark_summary.csv, results/plot/roc_curve.png, results/plot/accuracy.png, results/plot/f1_score.png, results/plot/run_time.png
+    output: reports/reports.html
+    jobid: 10
+    reason: Missing output files: reports/reports.html; Input files updated by another job: results/plot/run_time.png, results/benchmark_summary.csv, results/plot/accuracy.png, results/plot/roc_curve.png, results/plot/f1_score.png, results/combine_results.csv
+    resources: tmpdir=/tmp
+
+[Sun Mar 23 01:18:19 2025]
+Finished job 10.
+6 of 7 steps (86%) done
+Select jobs to execute...
+
+[Sun Mar 23 01:18:19 2025]
+localrule all:
+    input: results/RandomForest_evalution_metics.csv, results/MulticlassLogisticsRegression_evalution_metics.csv, results/benchmark_summary.csv, results/combine_results.csv, results/plot/roc_curve.png, results/plot/accuracy.png, results/plot/f1_score.png, reports/reports.html
+    jobid: 0
+    reason: Input files updated by another job: results/benchmark_summary.csv, results/MulticlassLogisticsRegression_evalution_metics.csv, reports/reports.html, results/RandomForest_evalution_metics.csv, results/plot/accuracy.png, results/plot/roc_curve.png, results/plot/f1_score.png, results/combine_results.csv
+    resources: tmpdir=/tmp
+
+[Sun Mar 23 01:18:19 2025]
+Finished job 0.
+7 of 7 steps (100%) done
+Complete log: .snakemake/log/2025-03-23T011813.784509.snakemake.log

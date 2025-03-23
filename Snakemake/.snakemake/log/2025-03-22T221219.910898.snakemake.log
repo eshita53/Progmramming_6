@@ -1,0 +1,5 @@
+host: Mac.localdomain
+Building DAG of jobs...
+WildcardError in rule analyzing_benchmarks in file /Users/eshita-pc/Documents/Second_year/programming 6/Snakemake/main.smk, line 99:
+Wildcards in input files cannot be determined from output files: (rule analyzing_benchmarks, line 210, /Users/eshita-pc/Documents/Second_year/programming 6/Snakemake/main.smk)
+'model'

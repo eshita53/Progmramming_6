@@ -1,0 +1,6 @@
+host: Mac.localdomain
+Building DAG of jobs...
+MissingInputException in rule all in file /Users/eshita-pc/Documents/Second_year/programming 6/Snakemake/main.smk, line 5:
+Missing input files for rule all:
+    affected files:
+        output/reports.txt

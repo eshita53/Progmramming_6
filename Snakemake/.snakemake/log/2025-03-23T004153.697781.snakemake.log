@@ -1,0 +1,40 @@
+host: Mac.localdomain
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job                count
+---------------  -------
+all                    1
+generate_report        1
+total                  2
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sun Mar 23 00:41:54 2025]
+localrule generate_report:
+    input: results/combine_results.csv, results/benchmark_summary.csv, results/plot/roc_curve.png, results/plot/accuracy.png, results/plot/f1_score.png
+    output: output/reports.html
+    jobid: 10
+    reason: Missing output files: output/reports.html
+    resources: tmpdir=/var/folders/vw/j0gj7skx0qdbp446rdwrjyz80000gn/T
+
+[Sun Mar 23 00:41:54 2025]
+Finished job 10.
+1 of 2 steps (50%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sun Mar 23 00:41:54 2025]
+localrule all:
+    input: results/RandomForest_evalution_metics.csv, results/MulticlassLogisticsRegression_evalution_metics.csv, results/combine_results.csv, results/plot/roc_curve.png, results/plot/accuracy.png, results/plot/f1_score.png, results/benchmark_summary.csv, output/reports.html
+    jobid: 0
+    reason: Input files updated by another job: output/reports.html
+    resources: tmpdir=/var/folders/vw/j0gj7skx0qdbp446rdwrjyz80000gn/T
+
+[Sun Mar 23 00:41:54 2025]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: .snakemake/log/2025-03-23T004153.697781.snakemake.log

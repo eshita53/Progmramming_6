@@ -1,0 +1,55 @@
+host: Mac.localdomain
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job                 count
+----------------  -------
+all                     1
+model_evaluation        2
+total                   3
+
+Select jobs to execute...
+Execute 2 jobs...
+
+[Sat Mar 22 16:47:18 2025]
+localrule model_evaluation:
+    input: models/MulticlassLogisticsRegression.pkl, data/transformed_data/transformed_test_X.csv, data/transformed_data/label_encoded_test_y.csv
+    output: results/MulticlassLogisticsRegression_evalution_metics.csv
+    jobid: 5
+    benchmark: benchmarks/model_evaluation_MulticlassLogisticsRegression.txt
+    reason: Missing output files: results/MulticlassLogisticsRegression_evalution_metics.csv
+    wildcards: model=MulticlassLogisticsRegression
+    resources: tmpdir=/var/folders/vw/j0gj7skx0qdbp446rdwrjyz80000gn/T
+
+[Sat Mar 22 16:47:18 2025]
+localrule model_evaluation:
+    input: models/RandomForest.pkl, data/transformed_data/transformed_test_X.csv, data/transformed_data/label_encoded_test_y.csv
+    output: results/RandomForest_evalution_metics.csv
+    jobid: 1
+    benchmark: benchmarks/model_evaluation_RandomForest.txt
+    reason: Missing output files: results/RandomForest_evalution_metics.csv
+    wildcards: model=RandomForest
+    resources: tmpdir=/var/folders/vw/j0gj7skx0qdbp446rdwrjyz80000gn/T
+
+[Sat Mar 22 16:47:19 2025]
+Finished job 5.
+1 of 3 steps (33%) done
+[Sat Mar 22 16:47:19 2025]
+Finished job 1.
+2 of 3 steps (67%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Mar 22 16:47:19 2025]
+localrule all:
+    input: results/RandomForest_evalution_metics.csv, results/MulticlassLogisticsRegression_evalution_metics.csv
+    jobid: 0
+    reason: Input files updated by another job: results/RandomForest_evalution_metics.csv, results/MulticlassLogisticsRegression_evalution_metics.csv
+    resources: tmpdir=/var/folders/vw/j0gj7skx0qdbp446rdwrjyz80000gn/T
+
+[Sat Mar 22 16:47:19 2025]
+Finished job 0.
+3 of 3 steps (100%) done
+Complete log: .snakemake/log/2025-03-22T164718.184390.snakemake.log

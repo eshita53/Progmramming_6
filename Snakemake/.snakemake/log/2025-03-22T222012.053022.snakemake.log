@@ -1,0 +1,85 @@
+host: Mac.localdomain
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job                                                  count
+-------------------------------------------------  -------
+all                                                      1
+combine_results                                          1
+compare_models_performance_through_visualizations        1
+model_evaluation                                         2
+total                                                    5
+
+Select jobs to execute...
+Execute 2 jobs...
+
+[Sat Mar 22 22:20:12 2025]
+localrule model_evaluation:
+    input: models/RandomForest.pkl, data/transformed_data/transformed_test_X.csv, data/transformed_data/label_encoded_test_y.csv
+    output: results/RandomForest_evalution_metics.csv
+    jobid: 1
+    benchmark: benchmarks/model_evaluation_RandomForest.txt
+    reason: Missing output files: results/RandomForest_evalution_metics.csv
+    wildcards: model=RandomForest
+    resources: tmpdir=/var/folders/vw/j0gj7skx0qdbp446rdwrjyz80000gn/T
+
+[Sat Mar 22 22:20:12 2025]
+localrule model_evaluation:
+    input: models/MulticlassLogisticsRegression.pkl, data/transformed_data/transformed_test_X.csv, data/transformed_data/label_encoded_test_y.csv
+    output: results/MulticlassLogisticsRegression_evalution_metics.csv
+    jobid: 5
+    benchmark: benchmarks/model_evaluation_MulticlassLogisticsRegression.txt
+    reason: Missing output files: results/MulticlassLogisticsRegression_evalution_metics.csv
+    wildcards: model=MulticlassLogisticsRegression
+    resources: tmpdir=/var/folders/vw/j0gj7skx0qdbp446rdwrjyz80000gn/T
+
+[Sat Mar 22 22:20:13 2025]
+Finished job 5.
+1 of 5 steps (20%) done
+[Sat Mar 22 22:20:13 2025]
+Finished job 1.
+2 of 5 steps (40%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Mar 22 22:20:13 2025]
+localrule combine_results:
+    input: results/RandomForest_evalution_metics.csv, results/MulticlassLogisticsRegression_evalution_metics.csv
+    output: results/combine_results.csv
+    jobid: 7
+    reason: Missing output files: results/combine_results.csv; Input files updated by another job: results/MulticlassLogisticsRegression_evalution_metics.csv, results/RandomForest_evalution_metics.csv
+    resources: tmpdir=/var/folders/vw/j0gj7skx0qdbp446rdwrjyz80000gn/T
+
+[Sat Mar 22 22:20:13 2025]
+Finished job 7.
+3 of 5 steps (60%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Mar 22 22:20:13 2025]
+localrule compare_models_performance_through_visualizations:
+    input: results/combine_results.csv
+    output: results/plot/roc_curve.png, results/plot/accuracy.png, results/plot/f1_score.png
+    jobid: 8
+    reason: Input files updated by another job: results/combine_results.csv
+    resources: tmpdir=/var/folders/vw/j0gj7skx0qdbp446rdwrjyz80000gn/T
+
+[Sat Mar 22 22:20:14 2025]
+Finished job 8.
+4 of 5 steps (80%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Mar 22 22:20:14 2025]
+localrule all:
+    input: results/RandomForest_evalution_metics.csv, results/MulticlassLogisticsRegression_evalution_metics.csv, results/combine_results.csv, results/plot/roc_curve.png, results/plot/accuracy.png, results/plot/f1_score.png
+    jobid: 0
+    reason: Input files updated by another job: results/RandomForest_evalution_metics.csv, results/plot/roc_curve.png, results/plot/f1_score.png, results/MulticlassLogisticsRegression_evalution_metics.csv, results/plot/accuracy.png, results/combine_results.csv
+    resources: tmpdir=/var/folders/vw/j0gj7skx0qdbp446rdwrjyz80000gn/T
+
+[Sat Mar 22 22:20:14 2025]
+Finished job 0.
+5 of 5 steps (100%) done
+Complete log: .snakemake/log/2025-03-22T222012.053022.snakemake.log
