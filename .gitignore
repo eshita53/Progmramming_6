@@ -172,3 +172,22 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+Green_ML/data/GSE58661_series_matrix.txt
+Green_ML/data/GSE58661_series_matrix.txt.gz
+Green_ML/data/Lung3.metadata.csv
+Green_ML/data/Lung3.metadata.xls
+
+.csv
+.keras
+Snakemake/benchmarks/
+
+Snakemake/data/GSE58661_series_matrix.txt
+Snakemake/data/GSE58661_series_matrix.txt.gz
+Snakemake/data/Lung3.metadata.csv
+Snakemake/data/Lung3.metadata.xls
+Snakemake/data/raw/
+Snakemake/data/transformed_data/
+.pkl
+Snakemake/results/
+
