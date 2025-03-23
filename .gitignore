@@ -180,13 +180,13 @@ Green_ML/data/Lung3.metadata.xlsclear
 .csv
 .keras
 Snakemake/benchmarks/
-
 Snakemake/data/GSE58661_series_matrix.txt
 Snakemake/data/GSE58661_series_matrix.txt.gz
 Snakemake/data/Lung3.metadata.csv
 Snakemake/data/Lung3.metadata.xls
 Snakemake/data/raw/
 Snakemake/data/transformed_data/
-.pkl
+*.pkl
 Snakemake/results/
+Snakemake/.snakemake/
 
