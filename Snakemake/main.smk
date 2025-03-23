@@ -1,3 +1,10 @@
+import os
+
+def ensure_dirs(directories):
+    """Ensure that all specified directories exist."""
+    for directory in directories:
+        os.makedirs(directory, exist_ok=True)
+
 configfile: "config.yaml"
 
 # All the directories path
@@ -10,6 +17,11 @@ LOGS_DIR = config['directories']['logs']
 BENCHMARKS_DIR = config['directories']['benchmarks']
 REPORTS_DIR = config['directories']['reports']
 SCRIPTS_DIR = config['directories']['scripts']
+
+# Required directories that need to be created
+required_dir = [RAW_DATA_DIR,TRANSFORMED_DATA_DIR,MODELS_DIR,RESULTS_DIR,PLOTS_DIR,LOGS_DIR,BENCHMARKS_DIR,REPORTS_DIR]
+# Ensure they exist before running Snakemake
+ensure_dirs(required_dir)
 
 # Common log file
 LOG_FILE = f"{LOGS_DIR}/workflow.log"

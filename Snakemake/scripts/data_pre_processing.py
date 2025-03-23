@@ -19,7 +19,7 @@ def process_features(logger, input_train_X_file, input_train_y_file, input_test_
         train_y = pd.read_csv(input_train_y_file)
         test_X = pd.read_csv(input_test_X_file)
         test_y = pd.read_csv(input_test_y_file)
-        logger.info(f"All trainning and test Data loaded successfully")
+        logger.info(f"All training and test Data loaded successfully")
 
     except Exception as e:
         logger.error(f"Failed to load data: {str(e)}")
