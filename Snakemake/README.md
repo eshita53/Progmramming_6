@@ -46,28 +46,26 @@ reproducible and scalable data analysis [1]. This project refactors a machine le
 1. **Clone the Repository and Set Up Dependencies**: Follow [these instructions](https://github.com/eshita53/Progmramming_6/tree/main?tab=readme-ov-file#progmramming_6) to clone the repository and set up the dependencies.
 2. **Set Up Configuration**:
    - Edit the **`config.yaml`** file to specify the dataset path and other parameters.
-# Workflow DAG:
+# Workflow DAG
 The Directed Acyclic Graph (DAG) provides a clear representation of the project's workflow, showing how different steps depend on each other. 
 ![image](https://github.com/eshita53/Progmramming_6/blob/10d4581eb9f77106c1c95a1d51cca5b69634b4c7/Snakemake/images/dag.png)
 
+# Running the workflow
+To run the workflow with all the cores, use this command
+``` bash
+snakemake -s main.smk --cores all
+```
+To run  a specific rule:  
+```bash
+snakemake -s main.smk <rule_name>
+```
+# Visualizing the Workflow
+To generate the DAG of the workflow:
 
+``` bash
+snakemake -s main.smk --dag | dot -Tpdf > images/dag.png
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```
 
 # References
 [1] Köster, J., & Rahmann, S. (2012). Snakemake--a scalable bioinformatics workflow engine. Bioinformatics (Oxford, England), 28(19), 2520–2522. doi:10.1093/bioinformatics/bts480
