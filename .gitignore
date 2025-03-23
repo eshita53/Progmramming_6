@@ -176,8 +176,7 @@ cython_debug/
 Green_ML/data/GSE58661_series_matrix.txt
 Green_ML/data/GSE58661_series_matrix.txt.gz
 Green_ML/data/Lung3.metadata.csv
-Green_ML/data/Lung3.metadata.xls
-
+Green_ML/data/Lung3.metadata.xlsclear
 .csv
 .keras
 Snakemake/benchmarks/
