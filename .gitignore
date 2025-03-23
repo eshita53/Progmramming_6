@@ -10,7 +10,7 @@ __pycache__/
 .Python
 build/
 develop-eggs/
-dist/
+dist
 downloads/
 eggs/
 .eggs/
@@ -190,3 +190,4 @@ Snakemake/data/transformed_data/
 Snakemake/results/
 Snakemake/.snakemake/
 
+.DS_Store
