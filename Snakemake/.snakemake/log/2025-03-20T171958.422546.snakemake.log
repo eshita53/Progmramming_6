@@ -1,8 +1,0 @@
-host: Mds-Laptop.local
-Building DAG of jobs...
-MissingInputException in rule model_tranining in file /Users/eshita-pc/Documents/Second_year/programming 6/Snakemake/main.smk, line 38:
-Missing input files for rule model_tranining:
-    output: models/RandomForest.pkl, models/MulticlassLogisticsRegression.pkl
-    affected files:
-        data/transformed_data/label_encoded_train_y.csv
-        data/transformed_data/transformed_train_X.csv

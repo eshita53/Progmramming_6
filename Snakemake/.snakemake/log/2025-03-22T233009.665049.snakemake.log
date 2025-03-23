@@ -1,9 +1,0 @@
-host: Mac.localdomain
-Building DAG of jobs...
-InputFunctionException in rule analyzing_benchmarks in file /Users/eshita-pc/Documents/Second_year/programming 6/Snakemake/main.smk, line 101:
-Error:
-  AttributeError: 'Wildcards' object has no attribute 'model'
-Wildcards:
-
-Traceback:
-  File "/Users/eshita-pc/Documents/Second_year/programming 6/Snakemake/main.smk", line 108, in <lambda> (rule analyzing_benchmarks, line 212, /Users/eshita-pc/Documents/Second_year/programming 6/Snakemake/main.smk)
