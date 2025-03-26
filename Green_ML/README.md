@@ -25,5 +25,4 @@ focusing on data processing tools and model architecture choices.
 
 # Running the application
 
-To analyze the data processing impact, run the `pandas-workflow.ipynb` and `polars-workflow.ipynb` sequentially. The results will be stored in the generated emission.csv file.
-Next, to assess the impact of large models, execute `digit_recog.ipynb,` which will further log emissions for comparison.
+Run `pandas-workflow.ipynb` and `polars-workflow.ipynb` one after the other to analyze data processing impact. The results will be saved in `emission.csv.` Then, run `digit_recog.ipynb` to log emissions for comparing large model impact.
