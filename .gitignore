@@ -189,10 +189,8 @@ Snakemake/data/transformed_data/
 *.pkl
 Snakemake/results/
 Snakemake/.snakemake/
-
 .DS_Store
 Green_ML/prev_results/
-
 Green_ML/emissions.csv
 Green_ML/emissions.csv_0.bak
 Green_ML/large_model_save.keras
