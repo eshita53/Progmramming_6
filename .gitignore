@@ -191,3 +191,12 @@ Snakemake/results/
 Snakemake/.snakemake/
 
 .DS_Store
+Green_ML/prev_results/
+
+Green_ML/emissions.csv
+Green_ML/emissions.csv_0.bak
+Green_ML/large_model_save.keras
+Green_ML/mid_model_save.keras
+Green_ML/model_save.keras
+Green_ML/pandas-workflow_draft_version.ipynb
+Green_ML/polars-workflow_draft_version.ipynb
