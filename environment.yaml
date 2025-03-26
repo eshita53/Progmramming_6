@@ -26,6 +26,7 @@ dependencies:
   - xgboost
   - polars
   - codecarbon
+  - polars
   - pip:
     - pysam ==0.22
     - scikit-learn
