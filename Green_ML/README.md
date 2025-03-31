@@ -19,7 +19,7 @@ focusing on data processing tools and model architecture choices.
 -**Green_ML_Report.pdf** - This document presents an assessment report on the carbon emissions of machine learning applications.
 
 # Installation Instructions
-1. **Clone the Repository and Set Up Dependencies**: Follow [these instructions](https://github.com/eshita53/Progmramming_6/tree/main?tab=readme-ov-file#progmramming_6) to clone the repository and set up the dependencies.
+1. **Clone the Repository and Set Up Dependencies**: Follow [these instructions](https://github.com/eshita53/Progmramming_6/blob/main/README.md#installation) to clone the repository and set up the dependencies.
 2. **Set Up Configuration**:
    - Edit the **`config.yaml`** file to specify the dataset path.
 
