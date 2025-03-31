@@ -16,7 +16,7 @@ focusing on data processing tools and model architecture choices.
 - **digit_recog.ipynb** – This notebook contains various experiments comparing different models based on their carbon emissions.
 
 ## Report:
--**Green_ML_Report.pdf** - This document presents an assessment report on the carbon emissions of machine learning applications.
+- **Green_ML_Report.pdf** - This document presents an assessment report on the carbon emissions of machine learning applications.
 
 # Installation Instructions
 1. **Clone the Repository and Set Up Dependencies**: Follow [these instructions](https://github.com/eshita53/Progmramming_6/blob/main/README.md#installation) to clone the repository and set up the dependencies.
