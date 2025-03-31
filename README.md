@@ -1,4 +1,4 @@
-# Progmramming_6
+# Progmramming-6
 This repository contains the portfolio assignment for the Programming-6 course. Each folder holds the solution for a specific assignment.
 ## Assignment Summaries
 ### [Assignment 1: Refactoring Machine Learning Workflow with Snakemake](https://github.com/eshita53/Progmramming_6/tree/main/Snakemake#refactoring-machine-learning-workflow-with-snakemake)
