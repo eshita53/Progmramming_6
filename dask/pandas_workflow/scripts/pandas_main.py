@@ -31,7 +31,9 @@ def main():
     log_file =  config['log_file_pandas']
     
     create_file_with_directory(log_file)
-    logging.basicConfig(filename = log_file, format="%(levelname)s: %(message)s", level=logging.INFO)
+    logging.basicConfig(filename=log_file, format='%(asctime)s - %(levelname)s - %(message)s',
+                    datefmt='%Y-%m-%d %H:%M:%S',
+                    level=logging.INFO)
     logger = logging.getLogger(__name__)
     
     # elapsed time calculation

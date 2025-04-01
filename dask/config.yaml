@@ -1,7 +1,7 @@
-lung3: '/homes/rmeshita/Documents/Programming_6/dask/data/Lung3.metadata.csv'
-gene: '/homes/rmeshita/Documents/Programming_6/dask/data/GSE58661_series_matrix.txt.gz'
-mem_time_profiling: '/homes/rmeshita/Documents/Programming_6/dask/mem_time_profiling.csv'
-dask_roc_file_path: 'roc_cuve_dask.png'
-pandas_roc_file_path: 'roc_cuve_pandas.png'
+lung3: 'data/Lung3.metadata.csv'
+gene: 'data/GSE58661_series_matrix.txt.gz'
+mem_time_profiling: 'analysis/mem_time_profiling.csv'
+dask_roc_file_path: 'analysis/roc_cuve_dask.png'
+pandas_roc_file_path: 'analysis/roc_cuve_pandas.png'
 log_file_dask : "logs/workflow_dask.log"
 log_file_pandas : "logs/workflow_pandas.log"
