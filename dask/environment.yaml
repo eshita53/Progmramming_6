@@ -5,15 +5,15 @@ channels:
   - defaults
 dependencies:
   - python=3.10
-  - dask=2024.11.2
-  - dask-ml=2024.4.4
-  - rdkit=2024.09.1
-  - ipykernells
+  - ipykernel
   - notebook
   - pandas
-  - numpy
+  - seaborn
+  - memory_profiler
+  - toolz
+  - dask
   - pip:
-      - dask-expr==1.1.19
-      - deepchem
-      - snakemake==7.24.1
-      - pulp==2.6.0
+      - dask[complete]==2025.3.0
+      - dask-ml==2025.1.0
+      - numpy==1.26.4
+      - xgboost==3.0.0
