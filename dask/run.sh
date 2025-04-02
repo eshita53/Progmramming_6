@@ -1,4 +1,5 @@
 
+# include dask modeules in python path
 _dir="$(pwd)"
 echo $_dir
 export PYTHONPATH=$_dir
