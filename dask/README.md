@@ -12,7 +12,7 @@ Pandas is a powerful Python library widely used for data manipulation and analys
 ## Python Files  
 
 ### Pandas Workflow  
-- **scripts/data_loading_pandas.py** – Retrieves raw data and combines them.  
+- **scripts/data_loading_pandas.py** – Retrieves raw data and combines it.  
 - **scripts/data_processor.py** – Contains the `DataProcessor` class for handling data processing tasks.  
 - **scripts/feature_processing_pandas.py** – Defines a scikit-learn estimator for feature processing. It utilizes the `DataProcessor` class for data transformation.  
 - **scripts/pandas_main.py** – Runs the full pandas workflow (Data Loading -> Feature transformation -> Model training -> Model Evaluation ).
@@ -20,19 +20,20 @@ Pandas is a powerful Python library widely used for data manipulation and analys
 
 
 ### Dask Workflow  
-- **scripts/data_loading_dask.py** – Retrieves raw data and combines them.  
+- **scripts/data_loading_dask.py** – Retrieves raw data and combines it.  
 - **scripts/data_processor_dask.py** – Contains the `DaskDataProcessor` class for handling data processing tasks.  
 - **scripts/feature_processing_dask.py** – Defines a scikit-learn estimator for feature processing. It utilizes the `DataProcDaskDataProcessoressor` class for data transformation.  
 - **scripts/dask_main.py** – Runs the full dask workflow (Data Loading -> Feature transformation -> Model training -> Model Evaluation ). 
 - **dask-workflow.ipynb** - Exploratory Data Analysis (EDA) workflow in dask
 
 ### Utility Functions
-- **evaluator.py** - Evaluator functions to measure performance of the models
+- **evaluator.py** - Evaluator functions to measure the performance of the models
 - **helping_functions.py** - some utility functions such as arg parser, memory profiling for both dask and pandas
 
 ### Other Directories
 - **logs/** – Keeps track of workflow execution and errors.  
-- **analysis/** – Stores final comparison plots on Pandas vs dask along with a python script to run this comparison.  
+- **analysis/** – Stores final comparison plots on Pandas vs dask, along with a Python script to run this comparison.
+- **reports/** – Stores final reports.
 
 # Installation 
 To run this repository locally, follow these steps:
@@ -45,7 +46,7 @@ Run the following command inside the folder to create the environment:
 `conda env create -f environment.yml`
 4. Use the following command to activate the environment:
 `conda activate dask_env`
-5. Before executing the script ensure the environment is activated.
+5. Before executing the script, ensure the environment is activated.
 
 # Run
 If the `run.sh` script is not executable, make it executable by running this command:
@@ -54,7 +55,7 @@ If the `run.sh` script is not executable, make it executable by running this com
 chmod +x run.sh
 ```
 
-Then run the following to start the whole applications
+Then run the following to start the whole application
 
 ```bash 
 ./run.sh
