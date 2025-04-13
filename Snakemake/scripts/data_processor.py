@@ -156,23 +156,6 @@ class DataProcessors():
 
     @staticmethod
     def significant_features(chi2_result, alpha):
-        """_summary_
-
-        Args:
-            chi2_result (dictionary): {
-                'feature_name':
-                {
-                    'chi2':
-                    'dof':
-                    'p-value':
-                }
-
-            }
-            alpha (float value): critical value for rejecting the null hypothesis 
-
-        Returns:
-            list: significant features name
-        """
         significant_features = []
         for key, value in chi2_result.items():
 
