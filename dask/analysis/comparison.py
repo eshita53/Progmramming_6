@@ -28,6 +28,6 @@ plot_charts(df, performance_cols, 'Workflow', 'Performance',
             'Pandas vs Dask Performance', 'comparison-performance.png')
 
 # memory usage
-memory_cols = ["memory_usage_during_execution (MB)"]
-plot_charts(df, memory_cols, 'Workflow', 'Memory usage',
+memory_cols = ["memory_usage_during_execution"]
+plot_charts(df, memory_cols, 'Workflow', 'Memory usage (MB)',
             'Pandas vs Dask Memory Usage', 'comparison-memory.png')

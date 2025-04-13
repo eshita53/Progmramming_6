@@ -4,4 +4,5 @@ mem_time_profiling: 'analysis/mem_time_profiling.csv'
 dask_roc_file_path: 'analysis/roc_cuve_dask.png'
 pandas_roc_file_path: 'analysis/roc_cuve_pandas.png'
 log_file_dask : "logs/workflow_dask.log"
-log_file_pandas : "logs/workflow_pandas.log"
+log_file_pandas : "logs/workflow_pandas.log" 
+report : "analysis/report.html"
