@@ -6,7 +6,7 @@ from data_processor_dask import DaskDataProcessor
 
 
 class FeatureProcessing(TransformerMixin, BaseEstimator):
-    def __init__(self, covariance_threshold=0, quantile_percentage=95, nan_threshold=35, logger=None):
+    def __init__(self, covariance_threshold=0.20, quantile_percentage=95, nan_threshold=35, logger=None):
         self.covariance_threshold = covariance_threshold
         self.quantile_percentage = quantile_percentage
         self.nan_threshold = nan_threshold

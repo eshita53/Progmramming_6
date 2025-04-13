@@ -3,7 +3,7 @@ from data_processor import DataProcessor
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 class FeatureProcessing(TransformerMixin, BaseEstimator): 
-    def __init__(self, covariance_threshold=0, quantile_percentage=95, nan_threshold =35):
+    def __init__(self, covariance_threshold=0.20, quantile_percentage=95, nan_threshold =35):
         self.covariance_threshold = covariance_threshold
         self.quantile_percentage = quantile_percentage
         self.nan_threshold= nan_threshold
