@@ -3,8 +3,8 @@ This repository contains the portfolio assignment for the Programming-6 course. 
 ## Assignment Summaries
 ### [Assignment 1: Refactoring Machine Learning Workflow with Snakemake](https://github.com/eshita53/Progmramming_6/tree/main/Snakemake#refactoring-machine-learning-workflow-with-snakemake)
 Snakemake is a Python language-based human-readable workflow management tool that is used for reproducible and scalable data analysis [1]. This project refactors a machine learning-based solution using Snakemake to automate the process. The pipeline handles data retrieval, preprocessing, model training, evaluation, benchmarking, and reporting.
-### [Assignment 2: ](https://github.com/eshita53/Programming-6)
-
+### [Assignment 2: Lung Cancer Classification with Dask and XGBoost](https://github.com/eshita53/Progmramming_6/tree/main/dask#performance-of-dask-and-pandas-on-lung-cancer-classification-using-xgboost)
+A scalable machine learning pipeline has been developed for a lung cancer research project aimed at classifying tumor subtypes using gene expression data and clinical features. Dask is utilized to process the large-scale dataset efficiently. We also used Dask with XGBoost to train a predictive model. The pipeline also includes an evaluation of the workflow’s computational efficiency to ensure scalability and performance.
 ### [Assignment 3: Assessing the Environmental Impact of ML Application](https://github.com/eshita53/Progmramming_6/tree/main/Green_ML#assessing-the-environmental-impact-of-ml-application)
 Machine learning (ML) applications have rapidly grown in complexity and scale, raising concerns about their environmental impact. This project evaluates the carbon footprint of different ML approaches, focusing on data processing tools and model architecture choices.
 ## Installation 
