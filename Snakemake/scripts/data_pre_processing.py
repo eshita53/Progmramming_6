@@ -44,13 +44,11 @@ def process_features(logger, input_train_X_file, input_train_y_file, input_test_
     transformed_test_X = feature_processor.transform(test_X)
 
     # Save the fitted feature processor for later use
-    # joblib.dump(feature_processor, output_model_file)
     with open(output_model_file, 'wb') as f:
         pickle.dump(feature_processor, f)
     logger.info(f"Feature processor saved to {output_model_file}")
 
     # save the fitted label encoder for later use
-    # joblib.dump(LE, output_encoded_target_file)
     with open(output_encoded_target_file, 'wb') as f:
         pickle.dump(LE, f)
     logger.info(f"Label encoder saved to {output_encoded_target_file}")
