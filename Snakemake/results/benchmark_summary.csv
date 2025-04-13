@@ -1,0 +1,3 @@
+model_name,training_runtime_sec,evaluation_runtime_sec,total_runtime_sec
+RandomForest,7.01,7.49,14.5
+MulticlassLogisticsRegression,19.95,2.5,22.45

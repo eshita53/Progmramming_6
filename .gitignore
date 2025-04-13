@@ -176,7 +176,7 @@ cython_debug/
 Green_ML/data/GSE58661_series_matrix.txt
 Green_ML/data/GSE58661_series_matrix.txt.gz
 Green_ML/data/Lung3.metadata.csv
-Green_ML/data/Lung3.metadata.xlsclear
+Green_ML/data/Lung3.metadata.xls
 .csv
 .keras
 Snakemake/benchmarks/
@@ -187,11 +187,9 @@ Snakemake/data/Lung3.metadata.xls
 Snakemake/data/raw/
 Snakemake/data/transformed_data/
 *.pkl
-Snakemake/results/
 Snakemake/.snakemake/
-.DS_Store
+*/.DS_Store
 Green_ML/prev_results/
-Green_ML/emissions.csv
 Green_ML/emissions.csv_0.bak
 Green_ML/large_model_save.keras
 Green_ML/mid_model_save.keras
