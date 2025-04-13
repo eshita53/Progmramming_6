@@ -41,7 +41,7 @@ reproducible and scalable data analysis [1]. This project refactors a machine le
 - **benchmarks/** – Records system performance data.  
 - **reports/** – Stores final reports.  
 - **scripts/** – Contains Python scripts for different tasks.
-- 
+
 # Installation Instructions
 1. **Clone the Repository and Set Up Dependencies**: Follow [these instructions](https://github.com/eshita53/Progmramming_6/blob/main/README.md#installation) to clone the repository and set up the dependencies.
 2. **Set Up Configuration**:
